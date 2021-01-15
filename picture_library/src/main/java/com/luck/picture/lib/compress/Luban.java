@@ -87,11 +87,13 @@ public class Luban implements Handler.Callback {
             LocalMedia media = provider.getMedia();
             String encryptionValue = StringUtils.getEncryptionValue(media.getPath(), media.getWidth(), media.getHeight());
             if (!TextUtils.isEmpty(encryptionValue) && !media.isCut()) {
+                System.out.println("luban1:"+encryptionValue);
                 cacheBuilder = mTargetDir + "/" +
                         "IMG_CMP_" +
                         encryptionValue +
                         (TextUtils.isEmpty(suffix) ? ".jpg" : suffix);
             } else {
+                System.out.println("luban2:"+DateUtils.getCreateFileName("IMG_CMP_"));
                 cacheBuilder = mTargetDir +
                         "/" +
                         DateUtils.getCreateFileName("IMG_CMP_") +
